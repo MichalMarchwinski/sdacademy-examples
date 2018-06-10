@@ -1,6 +1,13 @@
 package pl.sdacademy.swing.homework;
 
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.nio.file.Path;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -15,6 +22,10 @@ class ClasspathResourceReader {
 	 */
 	Stream<String> readAllLines(Path filePath) {
 		// TODO: implement according to the test specification and javadoc
-		throw new UnsupportedOperationException("implement according to the test specifcation and javadoc");
+		InputStream resourceAsStream = getClass().getResourceAsStream("/" + filePath.toString());
+		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream));
+		return bufferedReader.lines();
+
 	}
-}
+	}
+
