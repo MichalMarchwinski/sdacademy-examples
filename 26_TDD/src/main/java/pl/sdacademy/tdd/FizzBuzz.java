@@ -29,10 +29,9 @@ public class FizzBuzz {
 				if (number % 5 == 0) {
 					return "Buzz";
 				}
-			} else {
-				return "Whizz";
+				return String.valueOf(number);
 			}
 		}
-		return String.valueOf(number);
+		return "Whizz";
 	}
 }
