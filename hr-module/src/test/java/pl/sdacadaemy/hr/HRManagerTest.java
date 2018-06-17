@@ -10,7 +10,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 
-class UserTest {
+class HRManagaerTest {
 
 
 	private HRManager hrManager = new HRManager();
@@ -34,7 +34,7 @@ class UserTest {
 		//then
 		assertThat(employee).isNotNull();
 	}
-	@DisplayName("Should create a new allEmployees with all fields: /first name, last name, and date of birth")
+	@DisplayName("Should create a new employee with all fields: /first name, last name, and date of birth")
 	@Test
 	void test1() {
 		//given
@@ -48,7 +48,7 @@ class UserTest {
 		assertThat(employee.getSecondName()).isEqualTo(lastName);
 		assertThat(employee.getBirthOfDate()).isEqualTo(dateOfBirth);
 	}
-	@DisplayName("Should check if new Employee is add to the database")
+	@DisplayName("Should check if new Employee is added to the database")
 	@Test
 	void test2() {
 		//given
@@ -56,6 +56,7 @@ class UserTest {
 		String lastName = "Kot";
 		String dateOfBirth = "01-12-1960";
 		Employee newEmployee = hrManager.create(firstName,lastName,dateOfBirth);
+
 		//when
 		List<Employee> allEmployees = hrManager.findAll();
 
@@ -74,6 +75,14 @@ class UserTest {
 		//then
 		assertThat(allEmployees).containsOnly(adam, gorge);
 	}
+	@DisplayName("should make possible to enter employee data from console to database")
+	@Test
+	void test4() {
+		//given
 
+		//when
+
+		//then
+	}
 
 }

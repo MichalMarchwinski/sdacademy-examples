@@ -21,11 +21,9 @@ class Employee {
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public String getSecondName() {
 		return lastName;
 	}
-
 	public String getBirthOfDate() {
 		return dateOfBirth;
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class HRManager {
 
-	List<Employee> allEmployees =  new ArrayList<>();
+	private List<Employee> allEmployees =  new ArrayList<>();
 
 	Employee create(String firstName, String lastName, String dateOfBirth) {
 		Employee employee = new Employee(firstName, lastName, dateOfBirth);
