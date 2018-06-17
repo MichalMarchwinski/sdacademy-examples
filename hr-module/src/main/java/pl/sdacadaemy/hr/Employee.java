@@ -4,8 +4,7 @@ class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", " +
-			"dateOfBirth='" + dateOfBirth + '\'' + '}';
+		return firstName + " " + lastName + ", " + dateOfBirth;
 	}
 
 	private final String firstName;
@@ -21,9 +20,11 @@ class Employee {
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public String getSecondName() {
 		return lastName;
 	}
+
 	public String getBirthOfDate() {
 		return dateOfBirth;
 	}

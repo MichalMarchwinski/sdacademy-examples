@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class CommandLineRunnerTest {
@@ -68,6 +70,18 @@ public class CommandLineRunnerTest {
 		assertThat(employee.getFirstName()).isEqualTo("Adaś");
 		assertThat(employee.getSecondName()).isEqualTo("Miauczyński");
 		assertThat(employee.getBirthOfDate()).isEqualTo("11-11-1911");
+	}
+	@DisplayName("Should return list of text representation of all Employees from database")
+	@Test
+	void test05() {
+		//given
+		HRManager hrManager = new HRManager();
+		String[] args = {"firstName=Adaś", "lastName=Miauczyński", "dateOfBirth=11-11-1911"};
+		CommandLineRunner.load(args,hrManager);
+		//when
+		List<String> allEmployees = CommandLineRunner.list(hrManager);
+		//then
+		assertThat(allEmployees).containsOnly("Adaś Miauczyński, 11-11-1911");
 	}
 }
 
