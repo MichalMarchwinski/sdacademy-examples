@@ -1,8 +1,9 @@
 package pl.sdacadaemy.hr;
 
+import java.util.Comparator;
 import java.util.stream.DoubleStream;
 
-class Employee {
+class Employee implements Comparable<Employee> {
 
 	@Override
 	public String toString() {
@@ -37,4 +38,8 @@ class Employee {
 			dateOfBirth.contains(phrase);
 	}
 
+	@Override
+	public int compareTo(Employee otherEmployee) {
+		return firstName.compareTo(otherEmployee.getFirstName());
+	}
 }

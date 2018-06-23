@@ -1,6 +1,7 @@
 package pl.sdacadaemy.hr;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,10 +20,12 @@ public class HRManager {
 	}
 
 	public List<Employee> searchByLastName(String lastName) {
-		return allEmployees.stream().filter(employee -> employee.getLastName().contains(lastName))
-			.collect(Collectors.toList());
+		return allEmployees.stream().filter(employee -> employee.getLastName().contains(lastName)).collect
+			(Collectors.toList());
 
-/*		List<Employee> foundEmployees = new ArrayList<>();
+/*		doing the same, but with much longer code
+
+		List<Employee> foundEmployees = new ArrayList<>();
 		for (Employee employee : allEmployees) {
 			if (employee.getLastName().equals(lastName)) {
 				foundEmployees.add(employee);
@@ -32,8 +35,11 @@ public class HRManager {
 	}
 
 	public List<Employee> searchByPhrase(String phrase) {
-		return allEmployees.stream().filter(employee ->
-			employee.matches(phrase))
-			.collect(Collectors.toList());
+		return allEmployees.stream().filter(employee -> employee.matches(phrase)).collect(Collectors.toList());
+	}
+
+	public List<Employee> sortByFirstName() {
+	//return allEmployees.stream().sorted(Comparator.comparing(Employee::getFirstName)).collect(Collectors.toList());
+		return allEmployees.stream().sorted().collect(Collectors.toList());
 	}
 }

@@ -147,4 +147,17 @@ class HRManagaerTest {
 		//then
 		assertThat(foundEmployees).containsOnly(adamMiauczynski, stefanMuller);
 	}
+	@DisplayName("Should sort by first name ascending")
+	@Test
+	void test10() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		Employee zenonMuller = hrManager.create("Zenon", "Mulller", "02-06-1999");
+		Employee stefanMuller = hrManager.create("Stefan", "Mulller", "01-12-1960");
+		//when
+		List<Employee> sortedEmployees = hrManager.sortByFirstName();
+		//then
+		assertThat(sortedEmployees).containsExactly(adamMiauczynski, gorgeMiauczynski, stefanMuller, zenonMuller);
+	}
 }
