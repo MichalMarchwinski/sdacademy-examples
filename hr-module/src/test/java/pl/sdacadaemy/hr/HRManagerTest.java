@@ -1,6 +1,5 @@
 package pl.sdacadaemy.hr;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -45,7 +44,7 @@ class HRManagaerTest {
 		Employee employee = hrManager.create(firstName,lastName,dateOfBirth);
 		//then
 		assertThat(employee.getFirstName()).isEqualTo(firstName);
-		assertThat(employee.getSecondName()).isEqualTo(lastName);
+		assertThat(employee.getLastName()).isEqualTo(lastName);
 		assertThat(employee.getBirthOfDate()).isEqualTo(dateOfBirth);
 	}
 	@DisplayName("Should check if new Employee is added to the database")
@@ -75,14 +74,77 @@ class HRManagaerTest {
 		//then
 		assertThat(allEmployees).containsOnly(adam, gorge);
 	}
-	@DisplayName("should make possible to enter employee data from console to database")
+	@DisplayName("Should find single employee with given last name")
 	@Test
 	void test4() {
 		//given
-
+		Employee adam = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorge = hrManager.create("Gorege", "Pierzchała", "03-05-1988");
 		//when
-
+		List<Employee> foundEmployees = hrManager.searchByLastName("Miauczyński");
 		//then
+		assertThat(foundEmployees).containsOnly(adam);
 	}
-
+	@DisplayName("Should find every employee with given last name")
+	@Test
+	void test5() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorge = hrManager.create("Gorege", "Pierzchała", "03-05-1988");
+		Employee jurgen = hrManager.create("Jurgen", "Miauczyński", "02-06-1999");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByLastName("Miauczyński");
+		//then
+		assertThat(foundEmployees).containsOnly(adam, jurgen);
+	}
+	@DisplayName("Should find no employee when there is no employee with given last name")
+	@Test
+	void test6() {
+		//given
+		Employee adam = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorge = hrManager.create("Gorege", "Pierzchała", "03-05-1988");
+		Employee jurgen = hrManager.create("Jurgen", "Miauczyński", "02-06-1999");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByLastName("Kowalski");
+		//then
+		assertThat(foundEmployees).isEmpty();
+	}
+	@DisplayName("Should find two employee with name Adam when firstName matches given search phrase")
+	@Test
+	void test7() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorge = hrManager.create("Gorege", "Pierzchała", "03-05-1988");
+		Employee adamMuller = hrManager.create("Adam", "Mulller", "02-06-1999");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("Adam");
+		//then
+		assertThat(foundEmployees).containsOnly(adamMiauczynski, adamMuller);
+	}
+	@DisplayName("Should find two employee with name Miauczyński when last name matches given search phrase")
+	@Test
+	void test8() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		Employee adamMuller = hrManager.create("Adam", "Mulller", "02-06-1999");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("Miauczyński");
+		//then
+		assertThat(foundEmployees).containsOnly(adamMiauczynski, gorgeMiauczynski);
+	}
+	@DisplayName("Should find two employee with birth date 01-12-1960 when date of birth matches given search " +
+		"phrase")
+	@Test
+	void test9() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		Employee adamMuller = hrManager.create("Adam", "Mulller", "02-06-1999");
+		Employee stefanMuller = hrManager.create("Stefan", "Mulller", "01-12-1960");
+		//when
+		List<Employee> foundEmployees = hrManager.searchByPhrase("01-12-1960");
+		//then
+		assertThat(foundEmployees).containsOnly(adamMiauczynski, stefanMuller);
+	}
 }

@@ -1,5 +1,7 @@
 package pl.sdacadaemy.hr;
 
+import java.util.stream.DoubleStream;
+
 class Employee {
 
 	@Override
@@ -21,11 +23,18 @@ class Employee {
 		return firstName;
 	}
 
-	public String getSecondName() {
+	public String getLastName() {
 		return lastName;
 	}
 
 	public String getBirthOfDate() {
 		return dateOfBirth;
 	}
+
+	public Boolean matches(String phrase) {
+		return	firstName.contains(phrase)||
+			lastName.contains(phrase) ||
+			dateOfBirth.contains(phrase);
+	}
+
 }

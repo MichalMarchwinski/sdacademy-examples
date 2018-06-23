@@ -1,6 +1,5 @@
 package pl.sdacadaemy.hr;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -68,7 +67,7 @@ public class CommandLineRunnerTest {
 		//then
 		Employee employee = hrManager.findAll().get(0);
 		assertThat(employee.getFirstName()).isEqualTo("Adaś");
-		assertThat(employee.getSecondName()).isEqualTo("Miauczyński");
+		assertThat(employee.getLastName()).isEqualTo("Miauczyński");
 		assertThat(employee.getBirthOfDate()).isEqualTo("11-11-1911");
 	}
 	@DisplayName("Should return list of text representation of all Employees from database")
