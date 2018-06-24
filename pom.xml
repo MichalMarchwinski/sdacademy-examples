@@ -31,6 +31,8 @@
 		<module>23_pliki_konfiguracyjne</module>
 		<module>24_programowanie_funkcyjne</module>
 		<module>25-swing</module>
+		<module>26-tdd</module>
+		<module>27-algorithms</module>
 		<module>26_TDD</module>
 		<module>hr-module</module>
 	</modules>
