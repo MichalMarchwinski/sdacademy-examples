@@ -20,8 +20,7 @@ public class HRManager {
 	}
 
 	public List<Employee> searchByLastName(String lastName) {
-		return allEmployees.stream().filter(employee -> employee.getLastName().contains(lastName)).collect
-			(Collectors.toList());
+		return allEmployees.stream().filter(employee -> employee.getLastName().contains(lastName)).collect(Collectors.toList());
 
 /*		doing the same, but with much longer code
 
@@ -39,7 +38,21 @@ public class HRManager {
 	}
 
 	public List<Employee> sortByFirstName() {
-	//return allEmployees.stream().sorted(Comparator.comparing(Employee::getFirstName)).collect(Collectors.toList());
+		//return allEmployees.stream().sorted(Comparator.comparing(Employee::getFirstName)).collect(Collectors
+		// .toList());
 		return allEmployees.stream().sorted().collect(Collectors.toList());
+	}
+
+	public List<Employee> sortByFirstNameWithBubble() {
+		for (int j = 0; j < allEmployees.size() - 1; j++) {
+			for (int i = 0; i < allEmployees.size() - 1 - j; i++) {
+				if (allEmployees.get(i).getFirstName().compareTo(allEmployees.get(i + 1).getFirstName()) < 0) {
+					Employee temp = allEmployees.get(i);
+					allEmployees.set(i, allEmployees.get(i + 1));
+					allEmployees.set(i + 1, temp);
+				}
+			}
+		}
+		return allEmployees;
 	}
 }

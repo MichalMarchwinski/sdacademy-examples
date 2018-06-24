@@ -160,4 +160,42 @@ class HRManagaerTest {
 		//then
 		assertThat(sortedEmployees).containsExactly(adamMiauczynski, gorgeMiauczynski, stefanMuller, zenonMuller);
 	}
+	@DisplayName("Should sort two employees by first name descending")
+	@Test
+	void test11() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		//when
+		List<Employee> sortedEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortedEmployees).containsExactly(gorgeMiauczynski, adamMiauczynski);
+	}
+	@DisplayName("Should sort three employees by first name descending")
+	@Test
+	void test12() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		Employee stefanMuller = hrManager.create("Stefan", "Mulller", "01-12-1960");
+		//when
+		List<Employee> sortedEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortedEmployees).containsExactly(stefanMuller, gorgeMiauczynski, adamMiauczynski);
+	}
+	@DisplayName("Should sort four employees by first name descending")
+	@Test
+	void test13() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeMiauczynski = hrManager.create("Gorege", "Miauczyński", "03-05-1988");
+		Employee stefanMuller = hrManager.create("Stefan", "Mulller", "01-12-1960");
+		Employee zenonMuller = hrManager.create("Zenon", "Mulller", "02-06-1999");
+		//when
+		List<Employee> sortedEmployees = hrManager.sortByFirstNameWithBubble();
+		//then
+		assertThat(sortedEmployees).containsExactly(zenonMuller, stefanMuller, gorgeMiauczynski,
+			adamMiauczynski);
+	}
+
 }
