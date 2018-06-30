@@ -44,7 +44,6 @@ public class HRManagerSwingAdapterTest {
 					return new Employee("Zoltan", "Bloodhammer", "11-01-1210");
 				}
 				throw new IllegalArgumentException("Bad argument");
-
 			}
 		};
 	}

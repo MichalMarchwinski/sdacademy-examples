@@ -1,5 +1,6 @@
 package pl.sdacadaemy.hr;
 
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -196,6 +197,19 @@ class HRManagaerTest {
 		//then
 		assertThat(sortedEmployees).containsExactly(zenonMuller, stefanMuller, gorgeMiauczynski,
 			adamMiauczynski);
+	}
+	@DisplayName("Should sort four employees by last name")
+	@Test
+	void test14() {
+		//given
+		Employee adamMiauczynski = hrManager.create("Adam","Miauczyński","01-12-1960");
+		Employee gorgeGrzeszczak = hrManager.create("Gorege", "Grzeszczak", "03-05-1988");
+		Employee stefanMuller = hrManager.create("Stefan", "Mulller", "01-12-1960");
+		Employee zenonTroll = hrManager.create("Zenon", "Troll", "02-06-1999");
+		//when
+		List<Employee> sortedEmployees = hrManager.sortByLastName();
+		//then
+		assertThat(sortedEmployees).containsExactly(gorgeGrzeszczak, adamMiauczynski, stefanMuller, zenonTroll);
 	}
 
 }
