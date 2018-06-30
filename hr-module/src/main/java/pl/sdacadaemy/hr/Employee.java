@@ -1,13 +1,34 @@
 package pl.sdacadaemy.hr;
 
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.stream.DoubleStream;
 
 class Employee implements Comparable<Employee> {
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Employee employee = (Employee) o;
+		return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) &&
+			Objects.equals(dateOfBirth, employee.dateOfBirth);
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(firstName, lastName, dateOfBirth);
+	}
+
+	@Override
+
 	public String toString() {
-		return firstName + " " + lastName + ", " + dateOfBirth;
+		return firstName + " " + lastName + " " + dateOfBirth;
 	}
 
 	private final String firstName;
