@@ -36,6 +36,7 @@
 		<module>26_TDD</module>
 		<module>hr-module</module>
 		<module>printer</module>
+		<module>fibonacci</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>
