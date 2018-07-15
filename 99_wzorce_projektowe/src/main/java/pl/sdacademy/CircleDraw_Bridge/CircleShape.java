@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.CircleDraw;
+package pl.sdacademy.CircleDraw_Bridge;
 
 public class CircleShape extends Shape {
 	private double x, y, radius;

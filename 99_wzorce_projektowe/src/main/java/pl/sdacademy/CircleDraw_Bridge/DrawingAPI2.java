@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.CircleDraw;
+package pl.sdacademy.CircleDraw_Bridge;
 
 public class DrawingAPI2 implements DrawingAPI{
 	public void drawCircle(final double x, final double y, final double radius) {

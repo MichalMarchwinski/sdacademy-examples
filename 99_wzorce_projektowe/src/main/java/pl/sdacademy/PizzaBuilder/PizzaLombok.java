@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.PizzaBuilder;
+package pl.sdacademy.PizzaBuilder;
 
 import lombok.Builder;
 import lombok.ToString;

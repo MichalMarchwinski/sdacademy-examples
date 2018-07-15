@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.CircleDraw;
+package pl.sdacademy.CircleDraw_Bridge;
 
 public class BridgePattern {
 	public static void main(final String[] args) {

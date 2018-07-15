@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.PizzaBuilder;
+package pl.sdacademy.PizzaBuilder;
 
 public class Pizzeria {
 	public static void main(String[] args) {

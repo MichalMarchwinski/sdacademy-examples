@@ -37,6 +37,7 @@
 		<module>hr-module</module>
 		<module>printer</module>
 		<module>fibonacci</module>
+		<module>99_wzorce_projektowe</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>

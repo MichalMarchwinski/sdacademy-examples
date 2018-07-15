@@ -1,4 +1,4 @@
-package pl.sdacademy.printer.CircleDraw;
+package pl.sdacademy.CircleDraw_Bridge;
 
 abstract class Shape {
 	protected DrawingAPI drawingAPI;
