@@ -38,6 +38,7 @@
 		<module>printer</module>
 		<module>fibonacci</module>
 		<module>99_wzorce_projektowe</module>
+		<module>98_pair_project</module>
 	</modules>
 	<packaging>pom</packaging>
 	<name>sdacademy-examples</name>
