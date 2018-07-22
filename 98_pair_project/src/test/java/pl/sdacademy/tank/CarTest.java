@@ -1,39 +1,25 @@
 package pl.sdacademy.tank;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ArgumentsSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.DisplayName;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
-
-
-
-	@DisplayName("Should have filed up tank")
+	@DisplayName("jakie paliwo używa nasz samochód")
 	@Test
-	void test00() {
+	void tankTest0() {
 		//given
-		Car carPetrol = new Car(Tank.PETROL);
+		Car electricCar = new Car(TypeCar.ELECTRIC);
+		Car petrolCar = new Car(TypeCar.PETROL);
+		Car dieselCar = new Car(TypeCar.DIESEL);
 		//when
-		boolean result = carPetrol.fullTank();
+
 		//then
-		assertThat(result).isEqualTo(true);
+		assertThat(petrolCar).isNotNull();
+		assertThat(dieselCar).isNotNull();
+		assertThat(electricCar).isNotNull();
 	}
-	@DisplayName("Should give how much i would pay for given petrol")
-	@Test
-	void test01() {
-		//given
-		Car carPetrol = new Car(Tank.PETROL);
-		Car carDisel = new Car(Tank.DISEL);
-		int currentTank = 10;
-		//when
-		int result = carPetrol.fillUpTheTankAndKnowHowMuchIPaid(currentTank);
-		int result1 = carDisel.fillUpTheTankAndKnowHowMuchIPaid(currentTank);
-		//then
-		assertThat(result).isEqualTo(160);
-		assertThat(result1).isEqualTo(128);
-	}
+
+
 }

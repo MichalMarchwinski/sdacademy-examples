@@ -1,26 +1,22 @@
 package pl.sdacademy.tank;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Car {
-	private final Tank tank;
+	private final TypeCar typeCar;
 
-	public Car(Tank tank) {
-		this.tank = tank;
+	public Car(TypeCar typeCar) {
+		this.typeCar = typeCar;
 	}
 
+	final int MAX_FUEL_LEVEL = 42;
+	final int MAX_DIRT_VALUE = 100;
+	final int MAX_TIRES_USAGE_VALUE = 100;
+	int currentFuelLevel = 0;
+	int carDirt = 0;
+	int tires = 0;
 
-	final byte MAX_TANK = 42;
-	byte currentTank;
-	int howMuchIFill;
-
-	public int fillUpTheTankAndKnowHowMuchIPaid(int currentTank) {
-		howMuchIFill = MAX_TANK - currentTank;
-		int price = (howMuchIFill) * tank.getCurrentPrice();
-		return price;
-	}
-
-
-	public boolean fullTank() {
-
-		return currentTank == MAX_TANK;
-	}
 }
